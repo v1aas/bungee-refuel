@@ -1,5 +1,6 @@
 # BUNGEE-REFUEL
-Рефуел из polygon/avax в сети bsc,fantom, avax/polygon посредством моста https://bungee.exchange/
+Рефуел из polygon/avax/bsc в сети bsc,fantom,avax,polygon посредством моста https://bungee.exchange/
+Скрипт имеет рандомизацию в отправки времени транзакций (до 30 сек) и количество токенов (+1-10% от количества)
 
 ## Настройка
 1. Скачать python последней версии
