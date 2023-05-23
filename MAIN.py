@@ -6,8 +6,10 @@ import time
 
 POLYGON_RPC = 'https://polygon.llamarpc.com'
 AVAX_RPC = 'https://ava-mainnet.public.blastapi.io/ext/bc/C/rpc'
+BSC_RPC = 'https://bsc-dataseed.binance.org'
 BUNGEE_CONTRACT_POLYGON = '0xAC313d7491910516E06FBfC2A0b5BB49bb072D91'
 BUNGEE_CONTRACT_AVAX = '0x040993fbF458b95871Cd2D73Ee2E09F4AF6d56bB'
+BUNGEE_CONTRACT_BSC = '0xBE51D38547992293c89CC589105784ab60b004A9'
 CHAIN_ID = {
     'bsc': 56,
     'avax': 43114,
@@ -32,6 +34,10 @@ def refuel(network, private_keys, amount):
         rpc = AVAX_RPC
         contract_address = BUNGEE_CONTRACT_AVAX
         target_chain_id = 43114
+    elif network == 'bsc':
+        rpc = BSC_RPC
+        contract_address = BUNGEE_CONTRACT_BSC
+        target_chain_id = 56
     else:
         logger.error("Такой сети нет")
         return
@@ -77,7 +83,7 @@ def main():
 
     while True:
         print("Для выхода введи 0")
-        network = input("Из какой сети будет рефуел? \n 1 - polygon \n 2 - avax \n")
+        network = input("Из какой сети будет рефуел? \n 1 - polygon \n 2 - avax \n 3 - bsc \n")
         if network == '0':
             break
         elif network == '1':
@@ -86,12 +92,15 @@ def main():
         elif network == '2':
             network = 'avax'
             default_amount = 0.0065
+        elif network == '3':
+            network = 'bsc'
+            default_amount = 0.004
         else:
             print("Неправильный ввод. Доступны команды: 0, 1, 2")
             continue
 
         amount = input("Сколько нативного токена рефулить? \n По умолчанию для матика отправляется 1 $MATIC\n"
-                       + "Для авакса 0.0065 $AVAX \n" + 
+                       + " Для авакса 0.0065 $AVAX \n Для bsc 0.004 $BNB \n" + 
                        "Оставь строку пустой или напиши своё количество: ")
         amount = float(amount) if amount else default_amount
 
