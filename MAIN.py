@@ -4,7 +4,7 @@ import json
 import random
 import time
 
-POLYGON_RPC = 'https://polygon.llamarpc.com'
+POLYGON_RPC = 'https://polygon.blockpi.network/v1/rpc/public'
 AVAX_RPC = 'https://ava-mainnet.public.blastapi.io/ext/bc/C/rpc'
 BSC_RPC = 'https://bsc-dataseed.binance.org'
 BUNGEE_CONTRACT_POLYGON = '0xAC313d7491910516E06FBfC2A0b5BB49bb072D91'
@@ -13,7 +13,7 @@ BUNGEE_CONTRACT_BSC = '0xBE51D38547992293c89CC589105784ab60b004A9'
 CHAIN_ID = {
     'bsc': 56,
     'avax': 43114,
-    'fantom': 250,
+    #'fantom': 250,
     'polygon': 137
     }
 
