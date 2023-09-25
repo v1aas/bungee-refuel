@@ -1,13 +1,10 @@
 # BUNGEE-REFUEL
-Рефуел из polygon/avax/bsc в сети bsc, ~~fantom~~, avax, polygon посредством моста https://bungee.exchange/
 
-UPD:
-fantom закоммитил, тк сеть сейчас переживает не лучшие времена, там мало ликвидности. Если он нужен, то его нужно раскомитить в коде.
-Также если возникает непредвиденные ошибки, по типу "noonce to low", то поменяйте rpc для блокчейна (обычно этим шалит полигон).
-
-Скрипт имеет рандомизацию в отправке транзакций (до 30 сек) и количество токенов (+1-10% от количества)
-
-По всем вопросам - https://t.me/v1aas
+<details>
+    <summary>
+        <b>RU</b>
+    </summary>
+Рефуел из polygon/avax/bsc/optimism/arbitrum в сети bsc/avax/polygon/arbitrum/optimism/zksync/polygon zkevm/base посредством моста https://bungee.exchange. Скрипт имеет рандомизацию в отправке транзакций (по умолчанию от 10 до 30 секунд) и количество токенов (+1-10% от отправляемого количества). По всем вопросам - https://t.me/v1aas
 
 ## Настройка
 1. Скачать python последней версии
@@ -15,12 +12,42 @@ fantom закоммитил, тк сеть сейчас переживает н�
 3. Перейти через командную строку в папку с проектом, установить зависимости, в в командной строке написать строку:
     
     **pip install -r requirements.txt**
-4. Запустить main.py
+4. В **config.py** установить минимальную и максимальную задержку между транзакциями, там же можно поменять rpc для блокчейнов
+5. Запустить main.py
 
-## Как добавить другие сети?
-**Изменить следующую функцию**
-### refuel(network, private_keys, amount)
-Эта функция используется для выполнения "рефуелинга" (пополнения счета) из сети Polygon/Avax в другие сети блокчейна. Она принимает 3 аргумента:
-* network - сеть из которой будет рефуел
-* private_key - является приватным ключом кошелька пользователя
-* amount - указывает количество токенов для отправки. Если amount не указан, по умолчанию отправляется **1 $MATIC**/**0.0065 $AVAX**/**0.004 $BNB**
+## Возможные ошибки
+1. ValueError: {'code': -32000, 'message': 'noonce to low'}
+
+Нужно поменять rpc для блокчейна, с которого отправляется транзакции
+
+2. ValueError: {'code': -32000, 'message': 'intrinsic gas too low'}
+
+Не хватает газ лимита, зависит по большей части от состоянии сети, можно повысить в самом коде, на строчке 72 (arbitrum) и 74 (другие сети)
+
+
+</details>
+
+<details>
+    <summary>
+        <b>EN</b>
+    </summary>
+    Refuel from polygon/avax/bsc/optimism/arbitrum to bsc/avax/polygon/arbitrum/optimism/zksync/polygon zkevm/base network via https://bungee.exchange bridge. The script has randomization in sending transactions (10 to 30 seconds by default) and number of tokens (+1-10% of the number of tokens sent). For any questions - https://t.me/v1aas
+
+## Setting
+1. Download python latest version
+2. In private_keys.txt load private keys, 1 line - 1 key
+3. Go through the command line to the project folder, install dependencies, in the command line write the line:
+    
+    **pip install -r requirements.txt**
+4. In **config.py** set the minimum and maximum delay between transactions, there you can also change the rpc for blockchains.
+5. Run main.py
+
+## Possible errors
+1. ValueError: {'code': -32000, 'message': 'noonce to low'}
+
+Need to change the rpc for the blockchain from which the transaction is sent
+
+2. ValueError: {'code': -32000, 'message': 'intrinsic gas too low'}
+
+Not enough gas limit, depends mostly on the state of the network, can be increased in the code itself, on line 72 (arbitrum) and 74 (other networks).
+</details>
