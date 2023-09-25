@@ -15,6 +15,14 @@
 4. В **config.py** установить минимальную и максимальную задержку между транзакциями, там же можно поменять rpc для блокчейнов
 5. В main.py закоммотить/раскоммитить сети, в которые будет рефуел 
 6. Запустить main.py
+7. Для рефуела есть дефолтные минимальные значения:
+   
+        MATIC: 1 $MATIC
+        AVAX: 0.0065 $AVAX
+        BSC: 0.004 $BNB 
+        ARBITRUM: 0.0025 $ETH
+        OPTIMISM: 0.0027 $ETH
+   После выбора сети будет предложено, отправить с такими значеиями или ввести свое. ***В разных сетях - разная минимальное количество***. В bsc, matic, avax по умолчанию указаны минимальные значения не для дорогих сетей, для arb и opt - самые дорогие!
 
 ## Возможные ошибки
 1. ValueError: {'code': -32000, 'message': 'noonce to low'}
@@ -47,6 +55,14 @@
 4. In **config.py** set the minimum and maximum delay between transactions, there you can also change the rpc for blockchains.
 5. In main.py commit/uncommit the networks to be refueled
 6. Run main.py
+7. There are default minimum values for refuel:
+   
+        MATIC: 1 $MATIC
+        AVAX: 0.0065 $AVAX
+        BSC: 0.004 $BNB 
+        ARBITRUM: 0.0025 $ETH
+        OPTIMISM: 0.0027 $ETH
+   After selecting a network, you will be prompted whether to send with these values or enter your own. ***The minimum number varies from network to network***. In bsc, matic, avax default minimum values are not for expensive networks, for arb and opt - the most expensive!
 
 ## Possible errors
 1. ValueError: {'code': -32000, 'message': 'noonce to low'}
